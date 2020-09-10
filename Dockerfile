@@ -5,7 +5,7 @@ FROM mhart/alpine-node:8.11.4
 WORKDIR /api
 
 # copy package.json into the container at /api
-ADD package*.json /api/
+ADD api/package*.json /api/
 
 # install dependencies
 RUN npm install
@@ -21,7 +21,7 @@ CMD ["npm", "start"]
 
 
 FROM mhart/alpine-node:11 AS builder
-WORKDIR /client/src/app
+WORKDIR /app
 COPY . .
 EXPOSE 3000
 RUN yarn run build
