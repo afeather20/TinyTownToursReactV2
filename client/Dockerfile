@@ -1,17 +1,15 @@
-
-
-
-FROM mhart/alpine-node:11 AS builder
-WORKDIR /app
-ADD  client/package*.json /app/
+# Use a lighter version of Node as a parent image
+FROM mhart/alpine-node:8.11.4
+# Set the working directory to /client
+WORKDIR /client
+# copy package.json into the container at /client
+COPY package*.json /client/
+# install dependencies
+RUN npm install
+# Copy the current directory contents into the container at /client
+COPY . /client/
+# Make port 3000 available to the world outside this container
 EXPOSE 3000
-RUN yarn install
-ADD . ./
-
-
-FROM mhart/alpine-node
-RUN yarn global add serve
-WORKDIR /app
-CMD yarn run start
-
-
+RUN yarn build
+# Run the app when the container launches
+CMD ["yarn", "start"]
