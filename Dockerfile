@@ -26,7 +26,6 @@ ADD  client/package*.json /app/
 EXPOSE 3000
 RUN yarn run build
 
-FROM mhart/alpine-node
 RUN yarn global add serve
 WORKDIR /app
 ADD --from=builder /app/build .
