@@ -22,13 +22,13 @@ CMD ["npm", "start"]
 
 FROM mhart/alpine-node:11 AS builder
 WORKDIR /app
-COPY  client/package*.json /app/
+ADD  client/package*.json /app/
 EXPOSE 3000
 RUN yarn run build
 
 FROM mhart/alpine-node
 RUN yarn global add serve
 WORKDIR /app
-COPY --from=builder /app/build .
+ADD --from=builder /app/build .
 CMD yarn run start
 
