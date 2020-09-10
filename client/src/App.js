@@ -1,19 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@afeather20 
-Joao-Henrique
-/
-Docker_Medium_Tutorial
-2
-5032
-Code
-
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
