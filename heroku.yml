@@ -2,4 +2,4 @@ build:
   docker:
     web: Dockerfile.1
   docker:
-    web: Dockerfile.2
+    router: Dockerfile.2
