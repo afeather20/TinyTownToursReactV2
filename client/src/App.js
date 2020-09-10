@@ -13,22 +13,7 @@ Docker_Medium_Tutorial
 2
 5032
 Code
-Issues
-Pull requests
-8
-Actions
-Projects
-Wiki
-Security
-Insights
-Docker_Medium_Tutorial/client/src/App.js /
-@Joao-Henrique
-Joao-Henrique tutorial
-Latest commit ee32ec7 on Oct 6, 2018
- History
- 1 contributor
-50 lines (44 sloc)  1.35 KB
-  
+
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
