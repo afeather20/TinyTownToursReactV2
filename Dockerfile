@@ -25,7 +25,7 @@ WORKDIR /app
 ADD  client/package*.json /app/
 EXPOSE 80
 RUN yarn install
-ADD . /api/
+ADD . /app/
 RUN yarn build
 
 
