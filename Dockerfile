@@ -27,6 +27,7 @@ EXPOSE 3000
 RUN yarn run build
 
 RUN yarn global add serve
+
 WORKDIR /app
 ADD --from=builder /app/build .
 CMD yarn run start
