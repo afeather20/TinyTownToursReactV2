@@ -23,9 +23,10 @@ CMD ["npm", "start"]
 FROM mhart/alpine-node:11 AS builder
 WORKDIR /app
 ADD  client/package*.json /app/
-EXPOSE 3000
+EXPOSE 80
 RUN yarn install
-ADD . ./
+ADD . /api/
+RUN yarn build
 
 
 FROM mhart/alpine-node
