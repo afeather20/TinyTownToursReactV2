@@ -26,7 +26,6 @@ ADD  client/package*.json /app/
 EXPOSE 3000
 RUN yarn install
 ADD . ./
-RUN yarn run build
 
 
 FROM mhart/alpine-node
