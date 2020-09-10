@@ -5,13 +5,13 @@ FROM mhart/alpine-node:8.11.4
 WORKDIR /api
 
 # copy package.json into the container at /api
-COPY api/package*.json /api
+ADD api/package*.json /api
 
 # install dependencies
 RUN npm install
 
 # Copy the current directory contents into the container at /api
-COPY . /api/
+ADD . /api/
 
 # Make port 80 available to the world outside this container
 EXPOSE 9000
@@ -22,9 +22,16 @@ CMD ["npm", "start"]
 
 FROM mhart/alpine-node:11 AS builder
 WORKDIR /app
-COPY  client/package*.json /app
+ADD  client/package*.json /app/
 EXPOSE 3000
+RUN yarn install
+ADD . ./
 RUN yarn run build
 
+
+FROM mhart/alpine-node
+RUN yarn global add serve
+WORKDIR /app
 CMD yarn run start
+
 
