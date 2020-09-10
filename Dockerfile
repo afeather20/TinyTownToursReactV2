@@ -22,7 +22,7 @@ CMD ["npm", "start"]
 
 FROM mhart/alpine-node:11 AS builder
 WORKDIR /app
-COPY . .
+COPY  client/package*.json /app/
 EXPOSE 3000
 RUN yarn run build
 
