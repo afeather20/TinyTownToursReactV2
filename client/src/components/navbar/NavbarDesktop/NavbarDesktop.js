@@ -49,8 +49,8 @@ class NavbarDesktop extends React.Component {
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/AdamPortfolio">
-              Adam Portfolio
+            <Nav.Link href="/AdamPage">
+              Adam Page
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>

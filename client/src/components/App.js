@@ -1,10 +1,10 @@
 import React, { Component, useState } from "react";
 import logo from "../logo.svg";
 import "./App.css";
-import { Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import HomePage from './homePage/homePage';
-import AdamPage from './AdamPage/adamPage';
+import AdamPage from './AdamPage/AdamPage';
 import PortNavbar from './navbar/Navbar';
 
 class App extends Component {
@@ -51,10 +51,12 @@ class App extends Component {
         return (
             <div className="App wrapper">
               <PortNavbar toggle={this.toggle} isOpen={this.state.isOpen} />
+              <Router>
               <Switch>
-                <Route exact path="/HomePage" component={HomePage} />
-                <Route exact path="/AdamPage" component={AdamPage}/>
+                <Route exact path="/" component={HomePage} />
+                <Route exact path="/AdamPage" component={AdamPage} />
               </Switch>
+              </Router>
             </div>
           );
     }
