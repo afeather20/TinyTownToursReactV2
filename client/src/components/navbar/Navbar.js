@@ -7,6 +7,7 @@ import  NavbarDesktop  from './NavbarDesktop/NavbarDesktop';
 
 import classNames from "classnames";
 
+const DOMAIN = process.env.API_ENDPOINT_DOMAIN || "http://localhost:9000";
 
 class PortNavbar extends Component {
     
@@ -46,7 +47,7 @@ class PortNavbar extends Component {
     // Go to API and check testAPI route for a response
     callAPI() {
         console.log("LSKANDF");
-        fetch("http://localhost:9000/testAPI")
+            fetch(`${DOMAIN}/testAPI`)
             .then(res => res.text())
             .then(res => this.setState({ apiResponse: res }));
         console.log(this.state.apiResponse);

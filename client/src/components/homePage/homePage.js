@@ -6,6 +6,8 @@ import "../App.css";
 
 import NavBar from "./navBar";
 
+const DOMAIN = process.env.API_ENDPOINT_DOMAIN || "http://localhost:9000";
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -18,7 +20,7 @@ class App extends Component {
 
     // Go to API and check testAPI route for a response
     callAPI() {
-        fetch("http://localhost:9000/testAPI")
+        fetch(`${DOMAIN}/testAPI`)
             .then(res => res.text())
             .then(res => this.setState({ apiResponse: res }));
         console.log(this.state.apiResponse);
