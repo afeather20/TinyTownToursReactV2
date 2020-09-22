@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import HomePage from './homePage/homePage';
 import AdamPage from './AdamPage/AdamPage';
 import PortNavbar from './navbar/Navbar';
+import TinyTownTours from './AdamPage/AdamPage';
+import TinyTownNavbar from './TinyTownNavBar/Navbar';
 
 class App extends Component {
     constructor(props) {
@@ -50,12 +52,18 @@ class App extends Component {
     render() {
         return (
             <div className="App wrapper">
-              <PortNavbar toggle={this.toggle} isOpen={this.state.isOpen} />
               <Router>
-              <Switch>
-                <Route exact path="/" component={HomePage} />
-                <Route exact path="/AdamPage" component={AdamPage} />
-              </Switch>
+                <Switch>
+                  <Route exact path="/tinytowntours" component={() => <TinyTownNavbar toggle={this.toggle} isOpen={this.state.isOpen} /> } />
+                  <Route component={() => <PortNavbar toggle={this.toggle} isOpen={this.state.isOpen} /> } />
+                </Switch>
+              </Router>
+              <Router>
+                <Switch>
+                  <Route exact path="/" component={HomePage} />
+                  <Route exact path="/AdamPage" component={AdamPage} />
+                  <Route exact path="/TinyTownTours" component={TinyTownTours} />
+                </Switch>
               </Router>
             </div>
           );

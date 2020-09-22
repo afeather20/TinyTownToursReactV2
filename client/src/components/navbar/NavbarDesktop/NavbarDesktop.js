@@ -27,8 +27,7 @@ class NavbarDesktop extends React.Component {
       }
     
   render() {
-      console.log(this.props.isOpen);
-      console.log("ALKDNFALKNDFLAKSDNF");
+   
     return (
         <div className={classNames("sidebar", { "is-open": this.state.isOpen })}>
         <div className="sidebar-header">
@@ -39,28 +38,22 @@ class NavbarDesktop extends React.Component {
             className="mt-4"
           >
           </Button>
-          <h3>react-bootstrap sidebar</h3>
+          <h3>React Portfolio Website</h3>
         </div>
         <Nav className="flex-column pt-2">
-          <p className="ml-3">Heading</p>
           <Nav.Item className="active">
             <Nav.Link href="/">
               Home
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
+            <Nav.Link href="/TinyTownTours">
+              Tiny Town Tours
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
             <Nav.Link href="/AdamPage">
               Adam Page
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link href="/">
-              Portfolio
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link href="/">
-              FAQ
             </Nav.Link>
           </Nav.Item>
 
