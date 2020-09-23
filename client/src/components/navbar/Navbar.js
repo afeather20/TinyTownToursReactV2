@@ -7,7 +7,7 @@ const renderLoader = () => <p>Loading</p>;
 const NavbarMobile = lazy(() => import('./NavbarMobile/NavbarMobile')); 
 const NavbarDesktop = lazy(() => import('./NavbarDesktop/NavbarDesktop')); 
 
-const DOMAIN = process.env.API_ENDPOINT_DOMAIN || "http://localhost:9000";
+const DOMAIN = process.env.API_ENDPOINT_DOMAIN || "http://api:9000";
 
 class PortNavbar extends Component {
     

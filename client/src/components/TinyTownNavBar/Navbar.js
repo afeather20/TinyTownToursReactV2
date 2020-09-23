@@ -5,7 +5,7 @@ const renderLoader = () => <p>Loading</p>;
 const NavbarMobile = lazy(() => import('./NavbarMobile/NavbarMobile')); 
 const NavbarDesktop = lazy(() => import('./NavbarDesktop/NavbarDesktop')); 
 
-
+const DOMAIN = process.env.API_ENDPOINT_DOMAIN || "http://api:9000";
 
 class TinyTownNavbar extends Component {
     
@@ -45,7 +45,7 @@ class TinyTownNavbar extends Component {
     // Go to API and check testAPI route for a response
     callAPI() {
         console.log("LSKANDF");
-        fetch("http://localhost:9000/testAPI")
+        fetch(`${DOMAIN}/testAPI`)
             .then(res => res.text())
             .then(res => this.setState({ apiResponse: res }));
         console.log(this.state.apiResponse);

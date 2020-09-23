@@ -2,7 +2,7 @@ version: "2"
 services:
     client:
         stdin_open: true
-        build: 
+        build:
             context: ./client
         restart: always
         ports:
@@ -13,7 +13,7 @@ services:
         links:
             - api
     api:
-        build: 
+        build:
             context: ./api
         restart: always
         ports:
