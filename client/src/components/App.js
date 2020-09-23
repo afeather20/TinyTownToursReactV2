@@ -1,13 +1,15 @@
-import React, { Component, useState } from "react";
-import logo from "../logo.svg";
+import React, { Component, lazy, Suspense } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import HomePage from './homePage/homePage';
-import AdamPage from './AdamPage/AdamPage';
-import PortNavbar from './navbar/Navbar';
-import TinyTownTours from './AdamPage/AdamPage';
 import TinyTownNavbar from './TinyTownNavBar/Navbar';
+import PortNavbar from'./navbar/Navbar';
+
+
+const renderLoader = () => <p>Loading</p>;
+const TinyTownTour = lazy(() => import( './TinyTownTour/TinyTownTour'));
+const HomePage =  lazy(() => import( './homePage/homePage'));
+const AdamPage  = lazy(() => import('./AdamPage/AdamPage'));
 
 class App extends Component {
     constructor(props) {
@@ -54,15 +56,19 @@ class App extends Component {
             <div className="App wrapper">
               <Router>
                 <Switch>
+
                   <Route exact path="/tinytowntours" component={() => <TinyTownNavbar toggle={this.toggle} isOpen={this.state.isOpen} /> } />
                   <Route component={() => <PortNavbar toggle={this.toggle} isOpen={this.state.isOpen} /> } />
+
                 </Switch>
               </Router>
               <Router>
                 <Switch>
+                <Suspense fallback={renderLoader()}>
                   <Route exact path="/" component={HomePage} />
                   <Route exact path="/AdamPage" component={AdamPage} />
-                  <Route exact path="/TinyTownTours" component={TinyTownTours} />
+                  <Route exact path="/TinyTownTours" component={TinyTownTour} />
+                  </Suspense>
                 </Switch>
               </Router>
             </div>

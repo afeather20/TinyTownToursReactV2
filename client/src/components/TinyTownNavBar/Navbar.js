@@ -1,15 +1,13 @@
 import React, { Component, lazy, Suspense } from "react";
 import "../App.css";
-// import  NavbarMobile  from './NavbarMobile/NavbarMobile';
-// import  NavbarDesktop  from './NavbarDesktop/NavbarDesktop';
 
 const renderLoader = () => <p>Loading</p>;
 const NavbarMobile = lazy(() => import('./NavbarMobile/NavbarMobile')); 
 const NavbarDesktop = lazy(() => import('./NavbarDesktop/NavbarDesktop')); 
 
-const DOMAIN = process.env.API_ENDPOINT_DOMAIN || "http://localhost:9000";
 
-class PortNavbar extends Component {
+
+class TinyTownNavbar extends Component {
     
     constructor(props) {
         super(props);
@@ -47,7 +45,7 @@ class PortNavbar extends Component {
     // Go to API and check testAPI route for a response
     callAPI() {
         console.log("LSKANDF");
-            fetch(`${DOMAIN}/testAPI`)
+        fetch("http://localhost:9000/testAPI")
             .then(res => res.text())
             .then(res => this.setState({ apiResponse: res }));
         console.log(this.state.apiResponse);
@@ -68,18 +66,15 @@ class PortNavbar extends Component {
           <Suspense fallback={renderLoader()}>
           <div>
               {dimensions.width < 620 ? (
-                   
-                      <NavbarMobile/>
-                   
-
+              <NavbarMobile/>
              ) : (
                <NavbarDesktop toggle={this.toggle} isOpen={this.state.isOpen} />
           )}
             </div>
-              </Suspense>
+            </Suspense>
         );
     }
 }
 
-export default PortNavbar;
+export default TinyTownNavbar;
 

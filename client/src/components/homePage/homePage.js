@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container } from "react-bootstrap";
 import classNames from "classnames";
-import logo from "../../logo.jpg";
+import logo from "../../images/logo.jpg";
 import "../App.css";
 
 import NavBar from "./navBar";

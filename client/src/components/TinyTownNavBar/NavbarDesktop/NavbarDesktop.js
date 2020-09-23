@@ -1,9 +1,10 @@
 
 import React from "react";
 
-import { Button, Nav } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import classNames from "classnames";
 import "../../App.css";
+import logo from "../../../images/logo.png";
 
 class NavbarDesktop extends React.Component {
 
@@ -29,16 +30,17 @@ class NavbarDesktop extends React.Component {
   render() {
    
     return (
-        <div className={classNames("sidebar", { "is-open": this.state.isOpen })}>
-        <div className="sidebar-header">
-          <Button
-            variant="link"
-            onClick={this.props.toggle}
-            style={{ color: "#fff" }}
-            className="mt-4"
-          >
-          </Button>
-          <h3>React Portfolio Website</h3>
+        <div  className={classNames("sidebar", { "is-open": this.state.isOpen })}>
+        <div className="sidebar-header flex-column">
+          <Navbar.Brand href="#home">
+          <img
+            alt=""
+            src={logo}
+            width="60"
+            height="60"
+            className="d-inline-block align-top tiny-town-tours-logo"
+          />{' '}
+        </Navbar.Brand>
         </div>
         <Nav className="flex-column pt-2">
           <Nav.Item className="active">
@@ -47,7 +49,7 @@ class NavbarDesktop extends React.Component {
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/TinyTownTours">
+            <Nav.Link href="/">
               Tiny Town Tours
             </Nav.Link>
           </Nav.Item>
