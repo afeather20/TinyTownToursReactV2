@@ -6,7 +6,7 @@ import "../App.css";
 
 import NavBar from "./navBar";
 
-const DOMAIN = process.env.API_ENDPOINT_DOMAIN || "http://localhost:9000";
+const DOMAIN = process.env.API_ENDPOINT_DOMAIN || "http://api:9000";
 
 class App extends Component {
     constructor(props) {
