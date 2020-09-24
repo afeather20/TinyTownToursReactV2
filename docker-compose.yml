@@ -10,6 +10,8 @@ services:
         volumes:
             - ./client:/client
             - /client/node_modules
+        depends_on: 
+            - api
         links:
             - api
     api:

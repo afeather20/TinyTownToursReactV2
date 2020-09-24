@@ -1,5 +1,4 @@
 build:
   docker:
-    web: Dockerfile.1
-  docker:
-    router: Dockerfile.2
+    web: client/Dockerfile
+    web: api/Dockerfile
